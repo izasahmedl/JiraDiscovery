@@ -7,7 +7,7 @@ namespace JiraDiscovery.Common.Constants
 
         public static class Jira
         {
-            public const string SearchIssueJQLQuery = "project = 'KAN'";
+            public const string SearchIssueJQLQuery = "project = 'PRODOT'";
 
             public const int MaxResultsPerPage = 100;
         }

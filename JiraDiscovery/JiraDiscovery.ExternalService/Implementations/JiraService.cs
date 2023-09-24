@@ -37,7 +37,7 @@ namespace JiraDiscovery.ExternalService.Implementations
             
             var startAt = 0; var maxResults = 100;  bool hasMoreData = true;
 
-            var url = $"{_configuration["Jira:CloudUrlEndpoint"]}{SearchIssues}";
+            var url = $"{SearchIssues}";
 
             while (hasMoreData)
             {
@@ -87,6 +87,8 @@ namespace JiraDiscovery.ExternalService.Implementations
                 _logger.LogInformation("{MACHINE_NAME} - Number of issues processed in this request {TOTAL}", Environment.MachineName, total);
 
                 startAt += MaxResultsPerPage;
+
+                hasMoreData = false; //Kept for time being
 
                 if (startAt >= total)
                 {
