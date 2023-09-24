@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using JiraDiscovery.ExternalService.Interfaces;
 using static JiraDiscovery.Common.Constants.ApplicationConstants.Jira;
+using System.Linq;
 
 namespace JiraDiscoveryFunctionApp
 {
@@ -25,9 +26,9 @@ namespace JiraDiscoveryFunctionApp
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            await _jiraService.SearchIssuesAsync(SearchIssueJQLQuery).ConfigureAwait(false);
+            var response = await _jiraService.SearchIssuesAsync(SearchIssueJQLQuery).ConfigureAwait(false);
 
-            return new OkObjectResult("Successfully processed the request");
+            return new OkObjectResult(string.Join(',',response));
         }
     }
 }

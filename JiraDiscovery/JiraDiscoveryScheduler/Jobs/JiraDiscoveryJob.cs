@@ -20,7 +20,9 @@ namespace JiraDiscoveryScheduler.Jobs
         {
             _logger.LogInformation("Executed at current time {time}", DateTime.Now);
 
-            await _jiraService.SearchIssuesAsync(SearchIssueJQLQuery).ConfigureAwait(false);
+            var response = await _jiraService.SearchIssuesAsync(SearchIssueJQLQuery).ConfigureAwait(false);
+
+            Console.WriteLine(string.Join(',', response));
         }
     }
 }

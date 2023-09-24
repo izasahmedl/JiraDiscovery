@@ -27,8 +27,10 @@ namespace JiraDiscovery.ExternalService.Implementations
             _configuration = configuration;
         }
 
-        public async Task SearchIssuesAsync(string jqlQuery)
+        public async Task<List<string>> SearchIssuesAsync(string jqlQuery)
         {
+            var issues = new List<string>();
+
             var byteArray = Encoding.ASCII.GetBytes($"{_configuration["Jira:Authentication:UserName"]}:{_configuration["Jira:Authentication:APIToken"]}");
 
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(Basic, Convert.ToBase64String(byteArray));
@@ -64,7 +66,7 @@ namespace JiraDiscovery.ExternalService.Implementations
                 {
                     _logger.LogInformation("{MACHINE_NAME} - No Issues found. Hence coming out of the loop.", Environment.MachineName);
 
-                    return;
+                    return new List<string>();
                 }
 
                 foreach (var issue in issueJson["issues"]!)
@@ -76,6 +78,8 @@ namespace JiraDiscovery.ExternalService.Implementations
                     Console.Write(issueKey);
 
                     _logger.LogInformation("{MACHINE_NAME} - Wrote issue {ISSUE_KEY} details in json.", Environment.MachineName, issueKey);
+
+                    issues.Add(issueKey);
                 }
                 
                 var total = issueJson["total"]?.Value<int>();
@@ -91,6 +95,7 @@ namespace JiraDiscovery.ExternalService.Implementations
                     hasMoreData = false;
                 }
             }
+            return issues;
         }
     }
 }

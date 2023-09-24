@@ -2,6 +2,6 @@
 {
     public interface IJiraService 
     {
-        Task SearchIssuesAsync(string jqlQuery);
+        Task<List<string>> SearchIssuesAsync(string jqlQuery);
     }
 }
