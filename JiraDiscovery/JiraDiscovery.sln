@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraDiscovery.Common", "Jir
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraDiscovery.ExternalService", "JiraDiscovery.ExternalService\JiraDiscovery.ExternalService.csproj", "{73459C07-60E5-4E58-B6B2-29C91631502C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JiraDiscovery.ExternalServices.Models", "JiraDiscovery.ExternalServices.Models\JiraDiscovery.ExternalServices.Models.csproj", "{260963DC-267A-4EB7-801D-37A84939A54C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraDiscovery.ExternalServices.Models", "JiraDiscovery.ExternalServices.Models\JiraDiscovery.ExternalServices.Models.csproj", "{260963DC-267A-4EB7-801D-37A84939A54C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JiraDiscoveryFunctionApp", "JiraDiscoveryFunctionApp\JiraDiscoveryFunctionApp.csproj", "{55ADE49A-7DF0-435C-8DC6-68A605E362BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{260963DC-267A-4EB7-801D-37A84939A54C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{260963DC-267A-4EB7-801D-37A84939A54C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{260963DC-267A-4EB7-801D-37A84939A54C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55ADE49A-7DF0-435C-8DC6-68A605E362BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55ADE49A-7DF0-435C-8DC6-68A605E362BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55ADE49A-7DF0-435C-8DC6-68A605E362BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55ADE49A-7DF0-435C-8DC6-68A605E362BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
