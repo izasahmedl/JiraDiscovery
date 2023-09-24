@@ -1,6 +1,4 @@
-﻿using JiraDiscovery.Common.Configuration;
-using JiraDiscovery.ExternalService.Interfaces;
-using Microsoft.Extensions.Options;
+﻿using JiraDiscovery.ExternalService.Interfaces;
 using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -12,31 +10,32 @@ using System.Text.Json;
 using System.Net.Mime;
 using JiraDiscovery.ExternalServices.Models.Enums;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 
 namespace JiraDiscovery.ExternalService.Implementations
 {
     public class JiraService : IJiraService
     {
         private readonly HttpClient _httpClient;
-        private readonly Jira _jira;
         private readonly ILogger<JiraService> _logger;
+        private readonly IConfiguration _configuration;
 
-        public JiraService(HttpClient httpClient, IOptions<Jira> jira, ILogger<JiraService> logger)
+        public JiraService(HttpClient httpClient, ILogger<JiraService> logger, IConfiguration configuration)
         {
             _httpClient = httpClient;
-            _jira = jira.Value;
             _logger = logger;
+            _configuration = configuration;
         }
 
         public async Task SearchIssuesAsync(string jqlQuery)
         {
-            var byteArray = Encoding.ASCII.GetBytes($"{_jira.Authentication.UserName}:{_jira.Authentication.APIToken}");
+            var byteArray = Encoding.ASCII.GetBytes($"{_configuration["Jira:Authentication:UserName"]}:{_configuration["Jira:Authentication:APIToken"]}");
 
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(Basic, Convert.ToBase64String(byteArray));
             
             var startAt = 0; var maxResults = 100;  bool hasMoreData = true;
 
-            var url = $"{_jira.CloudUrlEndpoint}{SearchIssues}";
+            var url = $"{_configuration["Jira:CloudUrlEndpoint"]}{SearchIssues}";
 
             while (hasMoreData)
             {
@@ -74,7 +73,7 @@ namespace JiraDiscovery.ExternalService.Implementations
 
                     _logger.LogInformation("{MACHINE_NAME} - Writing issue {ISSUE_KEY} details in json.", Environment.MachineName, issueKey);
 
-                    File.WriteAllText($"{issueKey}.json", issue.ToString());
+                    Console.Write(issueKey);
 
                     _logger.LogInformation("{MACHINE_NAME} - Wrote issue {ISSUE_KEY} details in json.", Environment.MachineName, issueKey);
                 }

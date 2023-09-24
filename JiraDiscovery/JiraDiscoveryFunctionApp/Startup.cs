@@ -17,21 +17,17 @@ namespace JiraDiscoveryFunctionApp
 
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            // Configure your services here
-            //builder.Services.AddSingleton<IMyService, MyService>();
-            // Add other services as needed
-
             var services = builder.Services;
 
             var configurationBuilder = BuildConfigurationBuilder(builder);
 
             _configuration = configurationBuilder.Build();
 
+            services.AddSingleton(_configuration);
+
             services.BuildServiceProvider().CaptureServiceProvider();
 
-            services.Configure<Jira>(_configuration.GetSection($"{nameof(Jira)}"));
-
-            services.ConfigureExternalServices(_configuration);
+            services.ConfigureExternalServicesForFunctionApp(_configuration);
         }
 
         private static IConfigurationBuilder BuildConfigurationBuilder(IFunctionsHostBuilder hostBuilder)
@@ -49,11 +45,7 @@ namespace JiraDiscoveryFunctionApp
                     builder.AddConfiguration(existingConfigInstance);
                 }
 
-                var customEnvName = System.Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-
-                builder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                        .AddJsonFile("appsettings." + customEnvName + ".json", optional: true, reloadOnChange: true)
-                        .AddEnvironmentVariables();
+                builder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
                 return builder;
             }

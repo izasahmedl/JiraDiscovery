@@ -13,17 +13,6 @@ namespace JiraDiscovery.ExternalService.Extensions
     {
         public static IServiceCollection ConfigureExternalServices(this IServiceCollection services, HostBuilderContext ctx)
         {
-            services.AddHttpClient<IJiraTokenService, JiraTokenService>(httpClient =>
-            {
-                var authenticationConfig = ctx.Configuration.GetSection($"{nameof(Jira)}:{nameof(Authentication)}").Get<Authentication>() ?? throw new InvalidOperationException($"Configuration section {nameof(Jira)}:{nameof(Authentication)} cannot be empty");
-
-                var tokenUrl = authenticationConfig.TokenGenerationUrl ?? throw new InvalidOperationException($"Token generation url config section {nameof(Jira)}:{nameof(Authentication)}:{nameof(Authentication.TokenGenerationUrl)} cannot be empty");
-
-                httpClient.BaseAddress = new Uri(tokenUrl);
-
-                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(MediaTypeNames.Application.Json));
-            });
-
             services.AddHttpClient<IJiraService, JiraService>(httpClient =>
             {
                 var authenticationConfig = ctx.Configuration.GetSection($"{nameof(Jira)}").Get<Jira>() ?? throw new InvalidOperationException($"Configuration section {nameof(Jira)} cannot be empty");
@@ -38,26 +27,13 @@ namespace JiraDiscovery.ExternalService.Extensions
             return services;
         }
 
-        public static IServiceCollection ConfigureExternalServices(this IServiceCollection services, IConfiguration ctx)
+        public static IServiceCollection ConfigureExternalServicesForFunctionApp(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddHttpClient<IJiraTokenService, JiraTokenService>(httpClient =>
-            {
-                var authenticationConfig = ctx.GetSection($"{nameof(Jira)}:{nameof(Authentication)}").Get<Authentication>() ?? throw new InvalidOperationException($"Configuration section {nameof(Jira)}:{nameof(Authentication)} cannot be empty");
-
-                var tokenUrl = authenticationConfig.TokenGenerationUrl ?? throw new InvalidOperationException($"Token generation url config section {nameof(Jira)}:{nameof(Authentication)}:{nameof(Authentication.TokenGenerationUrl)} cannot be empty");
-
-                httpClient.BaseAddress = new Uri(tokenUrl);
-
-                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(MediaTypeNames.Application.Json));
-            });
-
             services.AddHttpClient<IJiraService, JiraService>(httpClient =>
             {
-                var authenticationConfig = ctx.GetSection($"{nameof(Jira)}").Get<Jira>() ?? throw new InvalidOperationException($"Configuration section {nameof(Jira)} cannot be empty");
+                var url = configuration["Jira:BaseUrl"];
 
-                var tokenUrl = authenticationConfig.BaseUrl ?? throw new InvalidOperationException($"Base url config section {nameof(Jira)}:{nameof(Jira.BaseUrl)} cannot be empty");
-
-                httpClient.BaseAddress = new Uri(tokenUrl);
+                httpClient.BaseAddress = new Uri(url);
 
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(MediaTypeNames.Application.Json));
             });
