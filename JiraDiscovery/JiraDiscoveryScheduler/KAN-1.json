@@ -64,14 +64,14 @@
                 "id": "action_id_11",
                 "styleClass": "issueaction-workflow-transition",
                 "label": "To Do",
-                "href": "/secure/WorkflowUIDispatcher.jspa?id=10000&action=11&atl_token=4062cea26c4c2e478cc656fb35551268114882a6_lin",
+                "href": "/secure/WorkflowUIDispatcher.jspa?id=10000&action=11&atl_token=fcf23552e6b8a96b1d7d9e2e79f256d25df787fb_lin",
                 "weight": 10
               },
               {
                 "id": "action_id_21",
                 "styleClass": "issueaction-workflow-transition",
                 "label": "In Progress",
-                "href": "/secure/WorkflowUIDispatcher.jspa?id=10000&action=21&atl_token=4062cea26c4c2e478cc656fb35551268114882a6_lin",
+                "href": "/secure/WorkflowUIDispatcher.jspa?id=10000&action=21&atl_token=fcf23552e6b8a96b1d7d9e2e79f256d25df787fb_lin",
                 "weight": 20
               }
             ],
@@ -91,7 +91,7 @@
                         "id": "action_id_31",
                         "styleClass": "issueaction-workflow-transition",
                         "label": "Done",
-                        "href": "/secure/WorkflowUIDispatcher.jspa?id=10000&action=31&atl_token=4062cea26c4c2e478cc656fb35551268114882a6_lin",
+                        "href": "/secure/WorkflowUIDispatcher.jspa?id=10000&action=31&atl_token=fcf23552e6b8a96b1d7d9e2e79f256d25df787fb_lin",
                         "weight": 30
                       }
                     ],
@@ -246,7 +246,7 @@
                     "styleClass": "issueaction-unwatch-issue",
                     "label": "Stop watching",
                     "title": "Stop watching this issue",
-                    "href": "/secure/VoteOrWatchIssue.jspa?atl_token=4062cea26c4c2e478cc656fb35551268114882a6_lin&id=10000&watch=unwatch",
+                    "href": "/secure/VoteOrWatchIssue.jspa?atl_token=fcf23552e6b8a96b1d7d9e2e79f256d25df787fb_lin&id=10000&watch=unwatch",
                     "weight": 50
                   },
                   {

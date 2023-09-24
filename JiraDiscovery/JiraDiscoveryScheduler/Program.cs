@@ -16,8 +16,6 @@ namespace JiraDiscoveryScheduler
                     
                     services.ConfigureQuartzJobs();
 
-                    services.Configure<Authentication>(hb.Configuration.GetSection($"{nameof(Jira)}:{nameof(Authentication)}"));
-
                     services.Configure<Jira>(hb.Configuration.GetSection($"{nameof(Jira)}"));
 
                     services.ConfigureExternalServices(hb);

@@ -20,19 +20,17 @@ namespace JiraDiscovery.ExternalService.Implementations
         private readonly HttpClient _httpClient;
         private readonly Jira _jira;
         private readonly ILogger<JiraService> _logger;
-        private readonly Authentication _authentication;
 
-        public JiraService(HttpClient httpClient, IOptions<Authentication> authentication, IOptions<Jira> jira, ILogger<JiraService> logger)
+        public JiraService(HttpClient httpClient, IOptions<Jira> jira, ILogger<JiraService> logger)
         {
             _httpClient = httpClient;
             _jira = jira.Value;
             _logger = logger;
-            _authentication = authentication.Value;
         }
 
         public async Task SearchIssuesAsync(string jqlQuery)
         {
-            var byteArray = Encoding.ASCII.GetBytes($"{_authentication.UserName}:{_authentication.APIToken}");
+            var byteArray = Encoding.ASCII.GetBytes($"{_jira.Authentication.UserName}:{_jira.Authentication.APIToken}");
 
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(Basic, Convert.ToBase64String(byteArray));
             
