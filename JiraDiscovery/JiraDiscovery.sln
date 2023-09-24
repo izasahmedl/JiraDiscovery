@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34009.444
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraDiscoveryScheduler", "JiraDiscoveryScheduler\JiraDiscoveryScheduler.csproj", "{142B18AD-5CC9-40BA-A942-195D09B71FDE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraDiscovery.Common", "JiraDiscovery.Common\JiraDiscovery.Common.csproj", "{81E8FD73-85E4-4289-954F-FC6DB4326674}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraDiscovery.ExternalService", "JiraDiscovery.ExternalService\JiraDiscovery.ExternalService.csproj", "{73459C07-60E5-4E58-B6B2-29C91631502C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JiraDiscovery.ExternalServices.Models", "JiraDiscovery.ExternalServices.Models\JiraDiscovery.ExternalServices.Models.csproj", "{260963DC-267A-4EB7-801D-37A84939A54C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{142B18AD-5CC9-40BA-A942-195D09B71FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{142B18AD-5CC9-40BA-A942-195D09B71FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{142B18AD-5CC9-40BA-A942-195D09B71FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{142B18AD-5CC9-40BA-A942-195D09B71FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81E8FD73-85E4-4289-954F-FC6DB4326674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81E8FD73-85E4-4289-954F-FC6DB4326674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81E8FD73-85E4-4289-954F-FC6DB4326674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81E8FD73-85E4-4289-954F-FC6DB4326674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73459C07-60E5-4E58-B6B2-29C91631502C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73459C07-60E5-4E58-B6B2-29C91631502C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73459C07-60E5-4E58-B6B2-29C91631502C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73459C07-60E5-4E58-B6B2-29C91631502C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{260963DC-267A-4EB7-801D-37A84939A54C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{260963DC-267A-4EB7-801D-37A84939A54C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{260963DC-267A-4EB7-801D-37A84939A54C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{260963DC-267A-4EB7-801D-37A84939A54C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22A0BD09-0E69-4315-880A-E9E06139B812}
+	EndGlobalSection
+EndGlobal

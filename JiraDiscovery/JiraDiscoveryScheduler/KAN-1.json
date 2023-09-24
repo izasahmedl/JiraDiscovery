@@ -1,0 +1,366 @@
+{
+  "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+  "id": "10000",
+  "self": "https://api.atlassian.com/ex/jira/ed5c44dc-6203-422e-b8cf-44c070bbd6c2/rest/api/2/issue/10000",
+  "key": "KAN-1",
+  "operations": {
+    "linkGroups": [
+      {
+        "id": "view.issue.opsbar",
+        "links": [],
+        "groups": [
+          {
+            "id": "edit-issue_container",
+            "weight": 1,
+            "links": [
+              {
+                "id": "edit-issue",
+                "styleClass": "issueaction-edit-issue",
+                "iconClass": "aui-icon aui-icon-small aui-iconfont-edit",
+                "label": "Edit",
+                "title": "Edit this issue",
+                "href": "/secure/EditIssue!default.jspa?id=10000",
+                "weight": 1
+              }
+            ],
+            "groups": []
+          },
+          {
+            "id": "comment-issue_container",
+            "weight": 10,
+            "links": [
+              {
+                "id": "comment-issue",
+                "styleClass": "issueaction-comment-issue add-issue-comment",
+                "iconClass": "aui-icon aui-icon-small aui-iconfont-comment icon-comment",
+                "label": "Comment",
+                "title": "Comment on this issue",
+                "href": "/secure/AddComment!default.jspa?id=10000",
+                "weight": 10
+              }
+            ],
+            "groups": []
+          },
+          {
+            "id": "assign-issue_container",
+            "weight": 5,
+            "links": [
+              {
+                "id": "assign-issue",
+                "styleClass": "issueaction-assign-issue",
+                "label": "Assign",
+                "title": "Assign this issue to someone",
+                "href": "/secure/AssignIssue!default.jspa?id=10000",
+                "weight": 5
+              }
+            ],
+            "groups": []
+          },
+          {
+            "id": "opsbar-transitions",
+            "weight": 20,
+            "links": [
+              {
+                "id": "action_id_11",
+                "styleClass": "issueaction-workflow-transition",
+                "label": "To Do",
+                "href": "/secure/WorkflowUIDispatcher.jspa?id=10000&action=11&atl_token=4062cea26c4c2e478cc656fb35551268114882a6_lin",
+                "weight": 10
+              },
+              {
+                "id": "action_id_21",
+                "styleClass": "issueaction-workflow-transition",
+                "label": "In Progress",
+                "href": "/secure/WorkflowUIDispatcher.jspa?id=10000&action=21&atl_token=4062cea26c4c2e478cc656fb35551268114882a6_lin",
+                "weight": 20
+              }
+            ],
+            "groups": [
+              {
+                "header": {
+                  "id": "opsbar-transitions_more",
+                  "label": "Workflow"
+                },
+                "links": [],
+                "groups": [
+                  {
+                    "id": "transitions-all",
+                    "weight": 70,
+                    "links": [
+                      {
+                        "id": "action_id_31",
+                        "styleClass": "issueaction-workflow-transition",
+                        "label": "Done",
+                        "href": "/secure/WorkflowUIDispatcher.jspa?id=10000&action=31&atl_token=4062cea26c4c2e478cc656fb35551268114882a6_lin",
+                        "weight": 30
+                      }
+                    ],
+                    "groups": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "jira.issue.tools",
+        "links": [
+          {
+            "id": "jira-share-trigger",
+            "styleClass": "viewissue-share",
+            "iconClass": "aui-icon aui-icon-small aui-iconfont-share",
+            "label": "",
+            "title": "Share this issue by emailing other users",
+            "href": "",
+            "weight": 10
+          }
+        ],
+        "groups": [
+          {
+            "id": "view.issue.exports",
+            "header": {
+              "id": "viewissue-export",
+              "styleClass": "aui-dropdown2-trigger-arrowless",
+              "iconClass": "icon-default aui-icon aui-icon-small aui-iconfont-export",
+              "label": "Export",
+              "title": "Export this issue in another format"
+            },
+            "links": [
+              {
+                "id": "jira.issueviews:issue-html",
+                "label": "Print",
+                "href": "/si/jira.issueviews:issue-html/KAN-1/KAN-1.html"
+              },
+              {
+                "id": "jira.issueviews:issue-xml",
+                "label": "Export XML",
+                "href": "/si/jira.issueviews:issue-xml/KAN-1/KAN-1.xml"
+              },
+              {
+                "id": "jira.issueviews:issue-word",
+                "label": "Export Word",
+                "href": "/si/jira.issueviews:issue-word/KAN-1/KAN-1.doc"
+              }
+            ],
+            "groups": []
+          },
+          {
+            "id": "jira.issue.tools.more",
+            "header": {
+              "id": "opsbar-operations_more",
+              "styleClass": "aui-dropdown2-trigger-arrowless",
+              "iconClass": "aui-icon aui-icon-small aui-iconfont-more",
+              "label": "More"
+            },
+            "links": [],
+            "groups": [
+              {
+                "id": "operations-top-level",
+                "links": [],
+                "groups": []
+              },
+              {
+                "id": "operations-work",
+                "links": [
+                  {
+                    "id": "log-work",
+                    "styleClass": "issueaction-log-work",
+                    "label": "Log work",
+                    "title": "Log work against this issue",
+                    "href": "/secure/CreateWorklog!default.jspa?id=10000",
+                    "weight": 10
+                  },
+                  {
+                    "id": "jira-slack-integration__connect-channel-web-item",
+                    "styleClass": "ap-dialog ap-target-key-connected-channels-new-connection-dialog ap-plugin-key-jira-slack-integration ap-module-key-connect-channel-web-item ap-link-webitem",
+                    "label": "Connect Slack channel",
+                    "href": "/plugins/servlet/ac/jira-slack-integration/jira-slack-integration__connect-channel-web-item?project.key=KAN&project.id=10000&issue.id=10000&issue.key=KAN-1&issuetype.id=10001",
+                    "weight": 100
+                  }
+                ],
+                "groups": []
+              },
+              {
+                "id": "greenhopper_issue_dropdown",
+                "links": [
+                  {
+                    "id": "greenhopper-rapidboard-operation",
+                    "styleClass": "issueaction-greenhopper-rapidboard-operation js-rapidboard-operation-issue",
+                    "label": "Agile board",
+                    "title": "View this issue on an Agile board",
+                    "href": "/secure/GHGoToBoard.jspa?issueId=10000",
+                    "weight": 30
+                  },
+                  {
+                    "id": "greenhopper-rank-top-operation",
+                    "styleClass": "issueaction-greenhopper-rank-top-operation",
+                    "label": "Rank to top",
+                    "href": "/secure/RankTop.jspa?issueId=10000",
+                    "weight": 40
+                  },
+                  {
+                    "id": "greenhopper-rank-bottom-operation",
+                    "styleClass": "issueaction-greenhopper-rank-bottom-operation",
+                    "label": "Rank to bottom",
+                    "href": "/secure/RankBottom.jspa?issueId=10000",
+                    "weight": 50
+                  }
+                ],
+                "groups": []
+              },
+              {
+                "id": "operations-attachments",
+                "links": [
+                  {
+                    "id": "attach-file",
+                    "styleClass": "unified-attach-file",
+                    "label": "Attach files",
+                    "title": "Attach one or more files to this issue",
+                    "href": "/secure/AttachFile!default.jspa?id=10000",
+                    "weight": 10
+                  },
+                  {
+                    "id": "attach-screenshot-html5",
+                    "styleClass": "issueaction-attach-screenshot-html5",
+                    "label": "Attach Screenshot",
+                    "href": "/secure/ShowAttachScreenshotFormAction!default.jspa?id=10000",
+                    "weight": 15
+                  }
+                ],
+                "groups": []
+              },
+              {
+                "id": "operations-voteswatchers",
+                "links": [
+                  {
+                    "id": "view-voters",
+                    "styleClass": "issueaction-view-voters",
+                    "label": "Voters",
+                    "title": "View voters for this issue",
+                    "href": "/secure/ViewVoters!default.jspa?id=10000",
+                    "weight": 30
+                  },
+                  {
+                    "id": "toggle-watch-issue",
+                    "styleClass": "issueaction-unwatch-issue",
+                    "label": "Stop watching",
+                    "title": "Stop watching this issue",
+                    "href": "/secure/VoteOrWatchIssue.jspa?atl_token=4062cea26c4c2e478cc656fb35551268114882a6_lin&id=10000&watch=unwatch",
+                    "weight": 50
+                  },
+                  {
+                    "id": "manage-watchers",
+                    "styleClass": "issueaction-manage-watchers",
+                    "label": "Watchers",
+                    "title": "Manage the watchers of this issue",
+                    "href": "/secure/ManageWatchers!default.jspa?id=10000",
+                    "weight": 60
+                  }
+                ],
+                "groups": []
+              },
+              {
+                "id": "operations-subtasks",
+                "links": [
+                  {
+                    "id": "create-subtask",
+                    "styleClass": "issueaction-create-subtask",
+                    "label": "Create sub-task",
+                    "title": "Create sub-task for this issue",
+                    "href": "/secure/CreateSubTaskIssue!default.jspa?parentIssueId=10000",
+                    "weight": 10
+                  },
+                  {
+                    "id": "issue-to-subtask",
+                    "styleClass": "issueaction-issue-to-subtask",
+                    "label": "Convert to sub-task",
+                    "title": "Convert this issue to sub-task",
+                    "href": "/secure/ConvertIssue.jspa?id=10000",
+                    "weight": 20
+                  }
+                ],
+                "groups": []
+              },
+              {
+                "id": "devstatus-cta-list",
+                "links": [],
+                "groups": []
+              },
+              {
+                "id": "operations-operations",
+                "links": [
+                  {
+                    "id": "move-issue",
+                    "styleClass": "issueaction-move-issue",
+                    "label": "Move",
+                    "title": "Move this issue to another project or issue type.",
+                    "href": "/secure/MoveIssue!default.jspa?id=10000",
+                    "weight": 10
+                  },
+                  {
+                    "id": "link-issue",
+                    "styleClass": "issueaction-link-issue",
+                    "label": "Link",
+                    "title": "Link this issue to another issue or item",
+                    "href": "/secure/LinkJiraIssue!default.jspa?id=10000",
+                    "weight": 20
+                  },
+                  {
+                    "id": "clone-issue",
+                    "styleClass": "issueaction-clone-issue",
+                    "label": "Clone",
+                    "title": "Clone this issue",
+                    "href": "/secure/CloneIssueDetails!default.jspa?id=10000",
+                    "weight": 20
+                  },
+                  {
+                    "id": "edit-labels",
+                    "styleClass": "issueaction-edit-labels",
+                    "label": "Labels",
+                    "title": "Edit this issue's labels",
+                    "href": "/secure/EditLabels!default.jspa?id=10000",
+                    "weight": 30
+                  }
+                ],
+                "groups": []
+              },
+              {
+                "id": "operations-delete",
+                "links": [
+                  {
+                    "id": "delete-issue",
+                    "styleClass": "issueaction-delete-issue",
+                    "label": "Delete",
+                    "title": "Delete this issue",
+                    "href": "/secure/DeleteIssue!default.jspa?id=10000",
+                    "weight": 10
+                  }
+                ],
+                "groups": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "fields": {
+    "summary": "Test Issue",
+    "assignee": null,
+    "status": {
+      "self": "https://api.atlassian.com/ex/jira/ed5c44dc-6203-422e-b8cf-44c070bbd6c2/rest/api/2/status/10000",
+      "description": "",
+      "iconUrl": "https://api.atlassian.com/ex/jira/ed5c44dc-6203-422e-b8cf-44c070bbd6c2/",
+      "name": "To Do",
+      "id": "10000",
+      "statusCategory": {
+        "self": "https://api.atlassian.com/ex/jira/ed5c44dc-6203-422e-b8cf-44c070bbd6c2/rest/api/2/statuscategory/2",
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+      }
+    }
+  }
+}
