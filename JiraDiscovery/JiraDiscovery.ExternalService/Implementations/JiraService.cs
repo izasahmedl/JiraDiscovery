@@ -1,8 +1,6 @@
 ﻿using JiraDiscovery.ExternalService.Interfaces;
 using Newtonsoft.Json.Linq;
-using System.Net.Http.Headers;
 using System.Text;
-using static JiraDiscovery.Common.Constants.HttpConstants;
 using static JiraDiscovery.Common.Constants.ApplicationConstants.Endpoints.Jira;
 using static JiraDiscovery.Common.Constants.ApplicationConstants.Jira;
 using JiraDiscovery.ExternalServices.Models;
@@ -10,7 +8,6 @@ using System.Text.Json;
 using System.Net.Mime;
 using JiraDiscovery.ExternalServices.Models.Enums;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Configuration;
 
 namespace JiraDiscovery.ExternalService.Implementations
 {
@@ -18,13 +15,11 @@ namespace JiraDiscovery.ExternalService.Implementations
     {
         private readonly HttpClient _httpClient;
         private readonly ILogger<JiraService> _logger;
-        private readonly IConfiguration _configuration;
 
-        public JiraService(HttpClient httpClient, ILogger<JiraService> logger, IConfiguration configuration)
+        public JiraService(HttpClient httpClient, ILogger<JiraService> logger)
         {
             _httpClient = httpClient;
             _logger = logger;
-            _configuration = configuration;
         }
 
         public async Task<List<string>> SearchIssuesAsync(string jqlQuery)
@@ -39,6 +34,8 @@ namespace JiraDiscovery.ExternalService.Implementations
             var startAt = 0; var maxResults = 100;  bool hasMoreData = true;
 
             var url = $"{SearchIssues}";
+
+            var cosmosClient = new CosmosDbService("AccountEndpoint=https://izascosmos.documents.azure.com:443/;AccountKey=xZwIB3DDfRgJRHDpsSXbIk8TAr8YXisDlbwOshgpiOsCu36108sy2ewLchtQLgiThqg0PnDdIsqKACDbWXb0ig==;", "test", "testc");
 
             while (hasMoreData)
             {
@@ -77,6 +74,8 @@ namespace JiraDiscovery.ExternalService.Implementations
 
                     Console.Write(issueKey);
 
+                    await cosmosClient.CreateItemAsync<dynamic>(issue.ToObject<dynamic>()).ConfigureAwait(false);
+
                     _logger.LogInformation("{MACHINE_NAME} - Wrote issue {ISSUE_KEY} details in json.", Environment.MachineName, issueKey);
 
                     issues.Add(issueKey);
@@ -87,8 +86,6 @@ namespace JiraDiscovery.ExternalService.Implementations
                 _logger.LogInformation("{MACHINE_NAME} - Number of issues processed in this request {TOTAL}", Environment.MachineName, total);
 
                 startAt += MaxResultsPerPage;
-
-                hasMoreData = false; //Kept for time being
 
                 if (startAt >= total)
                 {

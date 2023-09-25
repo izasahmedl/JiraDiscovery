@@ -5,8 +5,6 @@ namespace JiraDiscovery.Common.Extensions
     public static class ServiceCollectionExtensions
     {
         private static IServiceProvider _provider = default!;
-        private static IConfiguration _configuration = default!;
-        
         public static IServiceProvider GetServiceProvider
         {
             get
