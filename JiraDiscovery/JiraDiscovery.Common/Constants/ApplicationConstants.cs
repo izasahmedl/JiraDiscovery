@@ -7,7 +7,7 @@ namespace JiraDiscovery.Common.Constants
 
         public static class Jira
         {
-            public const string SearchIssueJQLQuery = "project = 'PRODOT'";
+            public const string SearchIssueJQLQuery = "project = JSWCLOUD AND issuetype = Bug AND status = Closed AND resolution = Fixed ORDER BY priority DESC, updated DESC";
 
             public const int MaxResultsPerPage = 100;
         }

@@ -30,10 +30,11 @@ namespace JiraDiscovery.ExternalService.Implementations
         public async Task<List<string>> SearchIssuesAsync(string jqlQuery)
         {
             var issues = new List<string>();
+            
+            //Commenting as of now for an anonymous use case
+            //var byteArray = Encoding.ASCII.GetBytes($"{_configuration["Jira:Authentication:UserName"]}:{_configuration["Jira:Authentication:APIToken"]}");
 
-            var byteArray = Encoding.ASCII.GetBytes($"{_configuration["Jira:Authentication:UserName"]}:{_configuration["Jira:Authentication:APIToken"]}");
-
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(Basic, Convert.ToBase64String(byteArray));
+            //_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(Basic, Convert.ToBase64String(byteArray));
             
             var startAt = 0; var maxResults = 100;  bool hasMoreData = true;
 
@@ -46,7 +47,6 @@ namespace JiraDiscovery.ExternalService.Implementations
                 var jiraRequest = new JiraIssueRequest {
                     Expand = new List<string>() { JiraIssueExpandEnum.Operations.ToString().ToLower(), JiraIssueExpandEnum.Names.ToString().ToLower(), JiraIssueExpandEnum.Schema.ToString().ToLower() },
                     Fields = new List<string> { JiraIssueFiltersEnum.Summary.ToString().ToLower(), JiraIssueFiltersEnum.Assignee.ToString().ToLower() , JiraIssueFiltersEnum.Status.ToString().ToLower() },
-                    FieldsByKeys = false,
                     Jql = jqlQuery,
                     MaxResults = maxResults,
                     StartAt = startAt,
